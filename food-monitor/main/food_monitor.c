@@ -176,10 +176,10 @@ static void weight_sensor_readings_task(void *arg) {
         if (calibration_complete) {
             weight = (int32_t)weight_sensor_get_value();    
             printf("Weight: %d\n", weight);
-            vTaskDelay(1000 / portTICK_PERIOD_MS);
+            vTaskDelay(20000 / portTICK_PERIOD_MS);
         } else {
             printf("Waiting for calibration...\n");
-            vTaskDelay(1000 / portTICK_PERIOD_MS);
+            vTaskDelay(20000 / portTICK_PERIOD_MS);
         }
     }
 }
@@ -198,9 +198,9 @@ static void weight_sensor_trigger_low_food_task(void *arg) {
 static void food_dispenser_move() {
     for (uint8_t index = 0; index < 200; index++) {
         gpio_set_level(FOOD_DISPENSER_STEP_PIN, 1);
-        vTaskDelay(20 / portTICK_PERIOD_MS);
+        vTaskDelay(10 / portTICK_PERIOD_MS);
         gpio_set_level(FOOD_DISPENSER_STEP_PIN, 0); 
-        vTaskDelay(20 / portTICK_PERIOD_MS);
+        vTaskDelay(10 / portTICK_PERIOD_MS);
     }
 }
 
