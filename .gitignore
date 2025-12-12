@@ -1,0 +1,3 @@
+food-monitor/build/*
+food-monitor/.vscode/*
+food-monitor/sdkconfig
