@@ -1,0 +1,22 @@
+[Unit]
+Description=Pet Monitor
+After=network.target
+
+[Service]
+# Run as the 'pi' user
+User=pi
+Group=pi
+
+# Path to your script or executable
+ExecStart=/usr/bin/python3 /home/pi/myapp/app.py
+
+# Restart policy (optional but recommended)
+Restart=always
+RestartSec=5
+
+# Environment variables (example)
+Environment="MYVAR=somevalue"
+Environment="PATH=/usr/local/bin:/usr/bin:/bin"
+
+[Install]
+WantedBy=multi-user.target

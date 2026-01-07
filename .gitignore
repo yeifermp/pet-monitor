@@ -1,3 +1,4 @@
 food-monitor/build/*
 food-monitor/.vscode/*
 food-monitor/sdkconfig
+camera-module/.venv/*

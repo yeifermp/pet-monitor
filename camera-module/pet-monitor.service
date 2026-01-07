@@ -1,0 +1,25 @@
+[Unit]
+Description=Pet Monitor
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+# Run as the 'pi' user
+User=pi
+Group=pi
+WorkingDirectory=/home/yeifermp/pet-monitor
+
+# Path to your script or executable
+ExecStart=/home/pi/pet-monitor/.venv/bin/python /home/pi/pet-monitor/main.py
+
+# Restart policy (optional but recommended)
+Restart=always
+RestartSec=5
+
+# Environment variables (example)
+Environment="INFLUXDB3_AUTH_TOKEN=apiv3_4iKNbja4OymVYGz6Ke4oRpguREMKq9QG7iF70jMuRnZY5txEOXTZOThqxtVbebj_eQbPWULt1UAFGTYPNTuE2g"
+Environment="INFLUX_HOST=http://localhost:8181"
+Environment="INFLUX_DATABASE=petmonitor"
+
+[Install]
+WantedBy=multi-user.target
